@@ -16,18 +16,13 @@ function getComputerChoice() {
 
 }
 
-//Test the function
-let result = getComputerChoice();
-console.log("Result of Computer Choice: " + result);
-
-
 //Ask the user about their choice 
 let pick = prompt("Your Choice: ");
 
 //Make the argument case insensitive
 let choice = pick.toUpperCase();
-console.log(choice);
 
+//Function initialization
 function getHumanChoice(choice) {
 
     //Return the value depending on their choice
@@ -45,25 +40,35 @@ function getHumanChoice(choice) {
 }
 
 
-//Test what my function returns 
-console.log("Human Choice: " + getHumanChoice(choice));
-
-
-
-
-//Declare the score counter of human and computer
+//Initialize the function
 let humanScore = 0;
 let computerScore = 0;
 
+function playRound(computerChoice, humanChoice) {
+    // Tie Cases
+    if (humanChoice === computerChoice) {
+        console.log(`It's a tie! No points will be given.`);
+        return;
+    }
 
-//Initialize the function
-function playRound(humanScore) {
-
-
-    return ++humanScore;
-
-
+    // Human Won Cases
+    if (
+        (humanChoice === "Rock" && computerChoice === "Scissor") ||
+        (humanChoice === "Paper" && computerChoice === "Rock") ||
+        (humanChoice === "Scissor" && computerChoice === "Paper")
+    ) {
+        console.log(`You won! ${humanChoice} beats ${computerChoice}.`);
+        humanScore++;
+    }
+    // Computer Won Cases
+    else {
+        console.log(`You lost! ${computerChoice} beats ${humanChoice}.`);
+        computerScore++;
+    }
 }
 
-//
-console.log("Score: " + playRound(humanScore));
+playRound(getComputerChoice(), getHumanChoice(choice));
+
+// Check the current Score
+console.log("Human Score: " + humanScore);
+console.log("Computer Score: " + computerScore);
