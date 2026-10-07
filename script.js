@@ -4,11 +4,11 @@ Create a for loop until 5 as the indicator that it's 5 rounds
 Pass the functions, score counter as arguments to the play game
 Use the arguments inside the function and let the loop do it's thing
 */
-function playGame(choice) {
+function playGame() {
 
-    //Initialize the function
     let humanScore = 0;
     let computerScore = 0;
+    let choice = "";
 
     function getComputerChoice() {
 
@@ -28,7 +28,6 @@ function playGame(choice) {
 
     }
 
-    //Function initialization
     function getHumanChoice(choice) {
 
         //Return the value depending on their choice
@@ -44,8 +43,6 @@ function playGame(choice) {
             return "Scissor";
         }
     }
-
-
 
     function playRound(computerChoice, humanChoice) {
         // Tie Cases
@@ -70,33 +67,25 @@ function playGame(choice) {
         }
     }
 
-    for (let i = 1; i <= 5; i++) {
+    const rock = document.getElementById("rock");
+    const paper = document.getElementById("paper");
+    const scissor = document.getElementById("scissor");
 
-        //Ask the user about their choice 
-        let pick = prompt("Your Choice: ");
-        //Make the argument case insensitive
-        let choice = pick.toUpperCase();
-
-
-        console.log(`Round ${i}: `);
+    rock.addEventListener('click', () => {
+        choice = "ROCK";
         playRound(getComputerChoice(), getHumanChoice(choice));
+    });
 
-        // Check the current Score
-        console.log("Human Score: " + humanScore);
-        console.log("Computer Score: " + computerScore);
+    paper.addEventListener('click', () => {
+        choice = "PAPER";
+        playRound(getComputerChoice(), getHumanChoice(choice));
+    });
 
+    scissor.addEventListener('click', () => {
+        choice = "SCISSOR";
+        playRound(getComputerChoice(), getHumanChoice(choice));
+    });
 
-    }
-
-    if (humanScore > computerScore) {
-        console.log("Congrats! You won the game.")
-    }
-    else if (humanScore < computerScore) {
-        console.log("Nice try! Computer won the game.")
-    }
-    else {
-        console.log("It's a tie.");
-    }
 }
 
 playGame();
