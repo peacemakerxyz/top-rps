@@ -47,7 +47,7 @@ function playGame() {
     function playRound(computerChoice, humanChoice) {
         // Tie Cases
         if (humanChoice === computerChoice) {
-            console.log(`It's a tie! No points will be given.`);
+            document.getElementById("output").textContent = `It's a tie! No points will be given.`;
             return;
         }
 
@@ -57,12 +57,12 @@ function playGame() {
             (humanChoice === "Paper" && computerChoice === "Rock") ||
             (humanChoice === "Scissor" && computerChoice === "Paper")
         ) {
-            console.log(`You won! ${humanChoice} beats ${computerChoice}.`);
+            document.getElementById("output").textContent = `You won! ${humanChoice} beats ${computerChoice}.`;
             humanScore++;
         }
         // Computer Won Cases
         else {
-            console.log(`You lost! ${computerChoice} beats ${humanChoice}.`);
+            document.getElementById("output").textContent = `You lost! ${computerChoice} beats ${humanChoice}.`;
             computerScore++;
         }
     }
