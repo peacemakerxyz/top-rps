@@ -10,7 +10,9 @@
 
 <style>
     h1,
-    h2 {
+    h2,
+    h3,
+    p {
         text-align: center;
     }
 
@@ -19,6 +21,11 @@
         justify-content: center;
         align-items: center;
         gap: 15px;
+    }
+
+    #output {
+        display: flex;
+        justify-content: center;
     }
 </style>
 
@@ -34,8 +41,19 @@
         <button id="scissor">Scissor</button>
     </div>
 
-    <div id="output">
+    <div>
+        <h3>Current Score - Race to 5 points</h3>
+        <p id="hs">Human Score: </p>
+        <p id="cs">Computer Score: </p>
     </div>
+
+    <p>Result of the round</p>
+    <div id="output">
+
+    </div>
+
+    <h1>Game Winner</h1>
+    <h1 id="winner"></h1>
 
 
 </body>

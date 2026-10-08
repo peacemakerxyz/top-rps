@@ -74,16 +74,52 @@ function playGame() {
     rock.addEventListener('click', () => {
         choice = "ROCK";
         playRound(getComputerChoice(), getHumanChoice(choice));
+        document.getElementById("hs").textContent = "Human Score: " + humanScore;
+        document.getElementById("cs").textContent = "Computer Score: " + computerScore;
+        if (humanScore === 5) {
+            document.getElementById("winner").textContent = "You won the game!";
+            humanScore = 0;
+            computerScore = 0;
+        }
+        else if (computerScore === 5) {
+            document.getElementById("winner").textContent = "You lost, nice try.";
+            humanScore = 0;
+            computerScore = 0;
+        }
     });
 
     paper.addEventListener('click', () => {
         choice = "PAPER";
         playRound(getComputerChoice(), getHumanChoice(choice));
+        document.getElementById("hs").textContent = "Human Score: " + humanScore;
+        document.getElementById("cs").textContent = "Computer Score: " + computerScore;
+        if (humanScore === 5) {
+            document.getElementById("winner").textContent = "You won the game!";
+            humanScore = 0;
+            computerScore = 0;
+        }
+        else if (computerScore === 5) {
+            document.getElementById("winner").textContent = "You lost, nice try.";
+            humanScore = 0;
+            computerScore = 0;
+        }
     });
 
     scissor.addEventListener('click', () => {
         choice = "SCISSOR";
         playRound(getComputerChoice(), getHumanChoice(choice));
+        document.getElementById("hs").textContent = "Human Score: " + humanScore;
+        document.getElementById("cs").textContent = "Computer Score: " + computerScore;
+        if (humanScore === 5) {
+            document.getElementById("winner").textContent = "You won the game!";
+            humanScore = 0;
+            computerScore = 0;
+        }
+        else if (computerScore === 5) {
+            document.getElementById("winner").textContent = "You lost, nice try.";
+            humanScore = 0;
+            computerScore = 0;
+        }
     });
 
 }
